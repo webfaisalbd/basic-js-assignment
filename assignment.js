@@ -1,13 +1,14 @@
 // 1.write a function to find out seer to mon  
 function seerToMon(seer) {
     if (seer < 0) {
-        return "unit does not have negative value";
+        return "unit(seer) does not have negative value";
     }
     else {
-        var mon = seer / 40;
+        var mon = (seer / 40).toFixed(2); // fraction quantity is displayed upto 2  decimal point
         return mon;
     }
 }
+// functions output test  
 var seerQuantity = 80;
 var conversion = seerToMon(seerQuantity);
 console.log(conversion);
@@ -25,10 +26,15 @@ function totalSales(shirtQuantity, pantQuantity, shoesQuantity) {
         return "Quantity does not have negative value";
     }
     else {
-        var totalPrice = shirtQuantity * perShirtPrice + pantQuantity * perPantPrice + shoesQuantity * perShoesPrice;
+        var totalShirtPrice = shirtQuantity * perShirtPrice; //total shirt price
+        var totalPantPrice = pantQuantity * perPantPrice; //total pant price
+        var totalShoesPrice = shoesQuantity * perShoesPrice; //total shoes price
+        // total (shirt+pant+shoes) price
+        var totalPrice = totalShirtPrice + totalPantPrice + totalShoesPrice;
         return totalPrice;
     }
 }
+// functions output test 
 var shirtPiece = 1;
 var pantPiece = 1;
 var shoesPiece = 2;
@@ -39,10 +45,11 @@ console.log(totalAmount);
 
 // 3.write a function to find out total Sales 
 function deliveryCost(tShirtQuantity) {
-    // all quantity shirt cost
+    // different range quantity shirt cost
     let firstHundredPerTshirtCost = 100;
     let secondHundredPerTshirtCost = 80;
     let restOfAllPerTshirtCost = 50;
+
     let totalCost = 0;
 
     if (tShirtQuantity < 0) {
@@ -70,23 +77,24 @@ function deliveryCost(tShirtQuantity) {
 
     }
 }
-var totalAmount = deliveryCost(-1);
+// functions output test 
+var totalAmount = deliveryCost(303);
 console.log(totalAmount);
 
 
 
 // 4.write a function to find out friend name which consists of 5 character 
-function perfectFriend(array) {
+function perfectFriend(friends) {
 
-    if (array.length == 0) {
+    if (friends.length == 0) {
         return "empty array";
     }
     else {
-        for (var i = 0; i < array.length; i++) {
-            element = array[i];
+        for (var i = 0; i < friends.length; i++) {
+            var element = friends[i];
 
             if (element.length == '') {
-                return "name does not have empty string";
+                return "Name does not have empty string";
             }
             else if (element.length == 5) {
                 return element;
@@ -94,6 +102,7 @@ function perfectFriend(array) {
         }
     }
 }
+// functions output test 
 var friendList = ["faisal", "jhankar", "mahbub", "Rocky", "", "iqra"];
 var output = perfectFriend(friendList);
 console.log(output);
